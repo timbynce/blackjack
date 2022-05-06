@@ -5,8 +5,7 @@ class Deck
     "2" => 2, "3" => 3, "4" => 4, "5" => 5, 
     "6" => 6, "7" => 7, "8" => 8, "9" => 9, 
     "10" => 10, "Jack" => 10, "Queen" => 10, 
-    "King" => 10, "Ace" => 11
-  }
+    "King" => 10, "Ace" => 11}
   CARD_SUITS = ["♠", "♥", "♦", "♣"]
 
   def initialize
@@ -29,12 +28,8 @@ class Deck
     cards.sample(number)
   end
 
-# временный метод для себя
-  def print_deck
-    cards.each do |card|
-      puts card.displayname
-      puts "----------"
-    end
-
+  def move_to_hand(gamester, card)
+    gamester.hand << card
+    self.cards.delete(card)
   end
 end
