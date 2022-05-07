@@ -17,12 +17,13 @@ class Game
     loop do
       self.class.new_deck
       puts "Your bank: #{@player.bank}; Dealer bank: #{@dealer.bank}"
+      @bet_round = 20
       new_dealing(@player)
       new_dealing(@dealer)
 
       new_round
 
-      puts 'Do you want to repeat?'
+      puts 'Do you want to repeat? (Type "no" if you dont)'
       choice = gets.chomp
       break if choice == 'no'
     end
@@ -99,7 +100,7 @@ class Game
 
   def win(gamester)
     puts "#{gamester.name} win this game!"
-    gamester.bank += 20
+    gamester.bank += @bet_round
   end
 
   def show_hand(*gamesters)
@@ -108,7 +109,7 @@ class Game
 
   def draw
     puts 'Draw!'
-    @player.bank += 10
-    @dealer.bank += 10
+    @player.bank += (@bet_round / 2)
+    @dealer.bank += (@bet_round / 2)
   end
 end

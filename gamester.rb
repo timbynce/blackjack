@@ -46,6 +46,7 @@ class Gamester
 
   def erase_hand
     @hand = []
+    @score = 0
   end
 
   private
