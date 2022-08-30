@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# проект игры blackjack
+
 require_relative 'validation'
 require_relative 'card'
 require_relative 'deck'
